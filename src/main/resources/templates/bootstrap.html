@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习Bootstrap</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <!--最外层的响应式div容器-->
+    <div class="container">
+        <!--普通的h1-->
+        <h1>1级标题</h1>
+        <!--在bootstrap中，使用nav创建一个导航栏-->
+        <!--导航条的class .navbar inverse->设置反色  默认白色 这样就是黑底白字-->
+        <nav class="navbar navbar-inverse">
+            <!--mobile-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar-menu"
+                        aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!--.navbar-collapse 在小于768像素变成垂直导航-->
+            <div id="navbar-menu" class="navbar-collapse">
+                <!--.nav实际导航内容 .navbar-nav说明这是作用于navbar的导航内容-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">用户</a></li>
+                    <li><a href="#">学习</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="content" class="row-fluid">
+            <div class="col-md-9">
+                <h2>Main Content Section</h2>
+                <p>嘻嘻嘻嘻嘻嘻</p>
+            </div>
+            <div class="col-md-3">
+                <h2>Sidebar</h2>
+                <ul class="nav nav-tabs nav-stacked">
+                    <li><a href='#'>Another Link 1</a></li>
+                    <li><a href='#'>Another Link 2</a></li>
+                    <li><a href='#'>Another Link 3</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <h2>拟态框</h2>
+    <a href="javascript:void(-1);" onclick="show()">点击</a>
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="qzUsername" placeholder="请输入用户名">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="请输入密码">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 请打勾
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-default">提交</button>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <script th:src="@{/js/jquerymin.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <script>
+        function show() {
+            $("#myModal").modal('show')
+        }
+    </script>
+</body>
+</html>

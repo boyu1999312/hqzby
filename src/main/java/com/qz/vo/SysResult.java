@@ -12,6 +12,23 @@ public class SysResult {
     private String msg;
     private Object data;
 
+    public static SysResult out(int status){
+        SysResult sysResult = SysResult.fail();
+        switch (status){
+            case ServiceStatus.OK: sysResult =  SysResult.ok();break;
+            //case ServiceStatus.ERROR: sysResult =  SysResult.fail();break;
+        }
+        return sysResult;
+    }
+
+    public static SysResult out(boolean flag){
+        return flag ? SysResult.ok() : SysResult.fail();
+    }
+    public static SysResult out(boolean flag, Object data){
+
+        return flag ? SysResult.ok(data) : SysResult.fail();
+    }
+
     public static SysResult ok(){
         return new SysResult(200, null, null);
     }
